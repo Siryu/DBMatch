@@ -1,0 +1,12 @@
+package models.database;
+
+import java.io.Serializable;
+
+public enum DataType implements Serializable
+{
+	TINYINT, SMALLINT, MEDIUMINT, INT, BIGINT,
+	FLOAT, DOUBLE, DECIMAL, BIT, CHAR, VARCHAR,
+	TINYTEXT, TEXT, MEDIUMTEXT, LONGTEXT, BINARY, VARBINARY,
+	TINYBLOB, BLOB, MEDIUMBLOB, LONGBLOB, ENUM, SET,
+	DATE, DATETIME, TIME, TIMESTAMP, YEAR
+}

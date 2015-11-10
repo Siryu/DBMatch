@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" version="3.0">
+  <display-name>DBMatch</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>home.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <error-page>
+  	<error-code>403</error-code>
+  	<location>/WEB-INF/Error403Page.jsp</location>
+  </error-page>
+    
+  <filter>
+    <filter-name>RoutingFilter</filter-name>
+    <filter-class>server.RoutingFilter</filter-class>
+  </filter>
+  <filter>
+    <filter-name>AuthenticationFilter</filter-name>
+    <filter-class>server.AuthenticationFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AuthenticationFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>RoutingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+  <servlet>
+    <servlet-name>AuctionServlet</servlet-name>
+    <servlet-class>server.MainServelet</servlet-class>
+    
+  <init-param>
+  	<param-name>listings</param-name>
+  	<param-value>true</param-value>
+  </init-param>
+  
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AuctionServlet</servlet-name>
+    <url-pattern>/app/*</url-pattern>
+  </servlet-mapping>
+</web-app>
